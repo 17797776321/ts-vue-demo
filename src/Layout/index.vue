@@ -1,6 +1,5 @@
 <template>
   <div class="layout">
-    {{a}}
     <router-view />
   </div>
 </template>
