@@ -1,44 +1,31 @@
 <template>
   <div class="layout">
-    <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-container>
-        <el-header>Header</el-header>
-        <el-main>
-          <router-view />
-        </el-main>
-        <el-footer>Footer</el-footer>
-      </el-container>
-    </el-container>
+    <el-row>
+      <el-col :span="3"
+              class="menu-box">
+        <i-menu></i-menu>
+      </el-col>
+      <el-col :span="20"></el-col>
+    </el-row>
 
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import IMenu from "./components/Menu.vue";
 @Component({
-  name: "Layout"
+  name: "Layout",
+  components: { IMenu }
 })
 export default class extends Vue {
   private a: String = "aaa";
 }
 </script>
 <style lang="less">
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
-  text-align: center;
-}
-
-.el-aside {
-  background-color: #d3dce6;
-  color: #333;
-  text-align: center;
-  height: 100vh;
-}
-
-.el-main {
-  background-color: #e9eef3;
-  color: #333;
+.layout {
+  .menu-box {
+    height: 100vh;
+    background-color: #eeeeee;
+  }
 }
 </style>
