@@ -10,6 +10,6 @@ import { Vue, Component } from "vue-property-decorator";
   name: "Layout"
 })
 export default class extends Vue {
-  private a = 111;
+  private a: String = "aaa";
 }
 </script>
