@@ -9,10 +9,11 @@ import '@/style/global.less';
 // 引入SVG
 import SvgIcon from 'vue-svgicon';
 Vue.use(ElementUI);
-Vue.config.productionTip = false;
+// 引入SVG
 Vue.use(SvgIcon, {
   tagName: 'svg-icon'
 });
+Vue.config.productionTip = false;
 new Vue({
   router,
   render: h => h(App)
