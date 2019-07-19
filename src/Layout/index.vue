@@ -1,13 +1,11 @@
 <template>
   <div class="layout">
     <el-row>
-      <el-col :span="3"
-              class="menu-box">
+      <el-col :span="3" class="menu-box">
         <i-menu></i-menu>
       </el-col>
       <el-col :span="20"></el-col>
     </el-row>
-
   </div>
 </template>
 <script lang="ts">
