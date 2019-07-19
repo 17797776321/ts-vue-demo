@@ -3,11 +3,12 @@
     <router-view />
   </div>
 </template>
-<script>
-import { Vue, Component } from 'vue-property-decorator';
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
 @Component({
-  name: 'Layout',
+  name: "Layout"
 })
 export default class extends Vue {
+  private a = 1;
 }
 </script>
