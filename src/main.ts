@@ -10,6 +10,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import '@/style/global.less';
 // 引入SVG
 import SvgIcon from 'vue-svgicon';
+import '@/icons'
 Vue.use(ElementUI);
 // 引入SVG
 Vue.use(SvgIcon, {
