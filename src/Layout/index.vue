@@ -4,7 +4,9 @@
       <el-col :span="3" class="menu-box">
         <i-menu></i-menu>
       </el-col>
-      <el-col :span="20"></el-col>
+      <el-col :span="20">
+        <svg-icon name="menu" width="50" height="50" color="#235647"></svg-icon>
+      </el-col>
     </el-row>
   </div>
 </template>
