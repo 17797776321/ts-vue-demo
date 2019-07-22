@@ -5,7 +5,6 @@
         <i-menu></i-menu>
       </el-col>
       <el-col :span="20">
-        111
         <svgicon name="menu" width="50" height="50" color="#ff0044"></svgicon>
       </el-col>
     </el-row>
