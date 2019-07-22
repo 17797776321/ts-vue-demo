@@ -14,5 +14,7 @@ export default class IMain extends Vue {
 </script>
 <style lang="less">
 .component-main {
+  padding: 10px;
+  min-height: 88vh;
 }
 </style>

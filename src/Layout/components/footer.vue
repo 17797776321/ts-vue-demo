@@ -12,5 +12,6 @@ export default class IFooter extends Vue {
 </script>
 <style lang="less">
 .component-footer {
+  padding: 10px;
 }
 </style>
