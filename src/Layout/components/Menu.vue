@@ -59,4 +59,7 @@ export default class Menu extends Vue {
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   min-height: 100vh;
 }
+.el-submenu .el-menu-item {
+  min-width: 0 !important;
+}
 </style>
