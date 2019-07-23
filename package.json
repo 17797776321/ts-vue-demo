@@ -9,8 +9,10 @@
     "svg": "vsvg -s ./src/assets/svg -t ./src/icons --ext ts --es6"
   },
   "dependencies": {
+    "@types/js-cookie": "^2.2.2",
     "core-js": "^2.6.5",
     "element-ui": "^2.10.1",
+    "js-cookie": "^2.2.0",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
@@ -26,7 +28,8 @@
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
     "typescript": "^3.4.3",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.10",
+    "vuex-module-decorators": "^0.9.9"
   },
   "postcss": {
     "plugins": {

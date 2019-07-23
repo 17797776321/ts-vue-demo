@@ -9,7 +9,7 @@
       text-color="#fff"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="isCollapse"
+      :collapse="sidebar.isCollapse"
     >
       <el-submenu index="1">
         <template slot="title">
@@ -42,6 +42,7 @@
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { AppModule } from "@/store/modules/app";
 @Component({
   name: "Menu"
 })
@@ -52,6 +53,9 @@ export default class Menu extends Vue {
   }
   private handleClose(key: String, keyPath: String) {
     console.log(key, keyPath);
+  }
+  get sidebar() {
+    return AppModule.sidebar;
   }
 }
 </script>
