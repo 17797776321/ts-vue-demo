@@ -25,6 +25,7 @@ export default class IHeader extends Vue {
   width: calc(100% - 20px);
   padding: 10px;
   border-bottom: 1px solid #eeeeee;
+  background-color: #ffffff;
   .breadcrumb {
     display: inline-block;
     vertical-align: middle;
