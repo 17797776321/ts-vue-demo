@@ -1,7 +1,7 @@
 <template>
   <div class="component-header">
     <a href="javascript:void(0);" @click="toggleSideBar">
-      <svgicon name="menu" width="30" height="30" color="#333333" :class="{'svg-left':sidebar.isCollapse}"></svgicon>
+      <svgicon name="menu" width="30" height="30" color="#333333" :class="{'svg-left':!sidebar.isCollapse}"></svgicon>
     </a>
     <el-breadcrumb class="breadcrumb" separator="/">
       <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
