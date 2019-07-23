@@ -1,26 +1,31 @@
 <template>
   <div class="layout">
-    <el-row>
-      <el-col :span="3" class="menu-box">
-        <i-menu></i-menu>
-      </el-col>
-      <el-col :span="21">
-        <i-header></i-header>
-        <i-main></i-main>
-        <i-footer></i-footer>
-      </el-col>
-    </el-row>
+    <div class="menu-box" :class="classOjb">
+      <i-menu></i-menu>
+    </div>
+    <div class="content-box">
+      <i-header></i-header>
+      <i-main></i-main>
+      <i-footer></i-footer>
+    </div>
+    <div style="clear:both"></div>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { IHeader, IMenu, IMain, IFooter } from "./components/index";
+import { AppModule } from "@/store/modules/app";
 @Component({
   name: "Layout",
   components: { IHeader, IMenu, IMain, IFooter }
 })
 export default class extends Vue {
-  private a: String = "aaa";
+  get classOjb() {
+    return {
+      hideSidebar: !AppModule.sidebar.isCollapse,
+      openSidebar: AppModule.sidebar.isCollapse
+    };
+  }
 }
 </script>
 <style lang="less">
@@ -28,6 +33,18 @@ export default class extends Vue {
   .menu-box {
     height: 100vh;
     background-color: #eeeeee;
+    float: left;
+  }
+  .hideSidebar {
+    width: 5vw !important;
+  }
+  .openSidebar {
+    width: 10vw !important;
+  }
+  .content-box {
+    width: 90vw;
+    height: 100vh;
+    float: left;
   }
 }
 </style>

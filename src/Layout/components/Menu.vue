@@ -9,7 +9,7 @@
       text-color="#fff"
       @open="handleOpen"
       @close="handleClose"
-      :collapse="sidebar.isCollapse"
+      :collapse="!sidebar.isCollapse"
     >
       <el-submenu index="1">
         <template slot="title">
