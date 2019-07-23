@@ -10,7 +10,7 @@ export interface IAppState {
 @Module({ dynamic: true, store, name: 'app' })
 export class App extends VuexModule implements IAppState {
   public sidebar = {
-    isCollapse: getSidebarStatus() !== 'close',
+    isCollapse: getSidebarStatus() !== 'closed',
     widthoutAnimation: false
   }
   @Mutation
