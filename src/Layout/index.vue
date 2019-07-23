@@ -36,7 +36,7 @@ export default class extends Vue {
     float: left;
   }
   .hideSidebar {
-    width: 5vw !important;
+    width: 3.8vw !important;
   }
   .openSidebar {
     width: 10vw !important;
