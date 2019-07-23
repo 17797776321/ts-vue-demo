@@ -24,10 +24,12 @@ export const asyncRoutes: RouteConfig[] = [
     path: '/personal-center',
     component: Layout,
     meta: { title: '个人中心' },
+    redirect: '/personal-center/intro',
     children: [
       {
-        path: 'personal-intro',
-        component: () => import('@/views/Personal-Intro/index.vue')
+        path: 'intro',
+        component: () => import('@/views/Intro/index.vue'),
+        meta: { title: '个人介绍' }
       }
     ]
   },
