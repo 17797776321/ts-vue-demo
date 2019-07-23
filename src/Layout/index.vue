@@ -1,9 +1,9 @@
 <template>
-  <div class="layout">
-    <div class="menu-box" :class="classOjb">
+  <div class="layout" :class="classOjb">
+    <div class="menu-box" style="float:left">
       <i-menu></i-menu>
     </div>
-    <div class="content-box">
+    <div class="content-box" style="float:left">
       <i-header></i-header>
       <i-main></i-main>
       <i-footer></i-footer>
@@ -30,21 +30,36 @@ export default class extends Vue {
 </script>
 <style lang="less">
 .layout {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+// 闭合时样式
+.layout.hideSidebar {
+  width: 100%;
   .menu-box {
-    height: 100vh;
-    background-color: #eeeeee;
-    float: left;
-  }
-  .hideSidebar {
     width: 3.8vw !important;
-  }
-  .openSidebar {
-    width: 10vw !important;
+    height: 100vh;
+    transition: width 0.28s linear 0.28s;
   }
   .content-box {
-    width: 90vw;
+    width: calc(100vw - 3.8vw) !important;
     height: 100vh;
-    float: left;
+    transition: width 0.28s linear 0.28s;
+  }
+}
+// 打开时样式
+.layout.openSidebar {
+  width: 100%;
+  .menu-box {
+    width: 10vw !important;
+    height: 100vh;
+    transition: width 0.28s linear 0.28s;
+  }
+  .content-box {
+    width: calc(100vw - 10vw) !important;
+    height: 100vh;
+    transition: width 0.28s linear 0.28s;
   }
 }
 </style>
