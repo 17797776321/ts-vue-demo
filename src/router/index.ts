@@ -15,10 +15,36 @@ export const constantRoutes: RouteConfig[] = [
       },
     ],
     meta: { title: '首页' },
-  },
+  }
 ];
 // 动态挂在路由
-export const asyncRoutes: RouteConfig[] = [];
+export const asyncRoutes: RouteConfig[] = [
+  // 个人介绍
+  {
+    path: '/personal-center',
+    component: Layout,
+    meta: { title: '个人中心' },
+    children: [
+      {
+        path: 'personal-intro',
+        component: () => import('@/views/Personal-Intro/index.vue')
+      }
+    ]
+  },
+  // 技术储备
+  {
+    path: '/technology-center',
+    component: Layout,
+    meta: { title: '技术储备' },
+    children: [
+      // 前端
+      {
+        path: 'front',
+        component: () => import('@/views/Technology-Front/index.vue')
+      }
+    ]
+  }
+];
 
 const createRouter = () => new Router({
   scrollBehavior: (to, from, savePosition) => {
