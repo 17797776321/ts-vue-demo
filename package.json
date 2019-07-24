@@ -10,10 +10,12 @@
   },
   "dependencies": {
     "@types/js-cookie": "^2.2.2",
+    "@types/nprogress": "^0.2.0",
     "core-js": "^2.6.5",
     "element-ui": "^2.10.1",
     "js-cookie": "^2.2.0",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "vue": "^2.6.10",
     "vue-class-component": "^7.0.2",
     "vue-property-decorator": "^8.1.0",
