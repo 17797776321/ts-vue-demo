@@ -5,6 +5,22 @@ Vue.use(Router);
 // 静态路由
 export const constantRoutes: RouteConfig[] = [
   {
+    path: '/redirect',
+    component: Layout,
+    meta: { hidden: true },
+    children: [
+      {
+        path: '/redirect/:path*',
+        component: () => import('@/views/Redirect/index.vue')
+      }
+    ]
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/Login/index.vue'),
+    meta: { title: '登陆' }
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -15,11 +31,6 @@ export const constantRoutes: RouteConfig[] = [
       },
     ],
     meta: { title: '首页' },
-  },
-  {
-    path: '/login',
-    component: () => import('@/views/Login/index.vue'),
-    meta: { title: '登陆' }
   }
 ];
 // 动态挂在路由

@@ -1,6 +1,6 @@
 
 <template>
-  <div class="page-login">登录页</div>
+  <div class="page-login">{{pageName}}</div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
