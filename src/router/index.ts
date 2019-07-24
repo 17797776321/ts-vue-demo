@@ -15,6 +15,11 @@ export const constantRoutes: RouteConfig[] = [
       },
     ],
     meta: { title: '首页' },
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/Login/index.vue'),
+    meta: { title: '登陆' }
   }
 ];
 // 动态挂在路由
