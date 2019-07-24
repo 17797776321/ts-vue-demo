@@ -21,6 +21,11 @@ export const constantRoutes: RouteConfig[] = [
     meta: { title: '登陆' }
   },
   {
+    path: '/auth-redirect',
+    component: () => import('@/views/Login/auth-redirect.vue'),
+    meta: { hidden: true }
+  },
+  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
