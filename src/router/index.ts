@@ -20,7 +20,22 @@ export const constantRoutes: RouteConfig[] = [
 // 动态挂在路由
 export const asyncRoutes: RouteConfig[] = [
   {
-    path: ''
+    path: '/',
+    component: Layout,
+    children: [
+      // 个人中心
+      {
+        path: 'personal-center',
+        component: () => import('@/views/PersonalCenter/index.vue'),
+        meta: { title: '个人中心' }
+      },
+      // technology 技术储备
+      {
+        path: 'technology',
+        component: () => import('@/views/Technology/index.vue'),
+        meta: { title: '技术储备' }
+      }
+    ]
   }
 ];
 
