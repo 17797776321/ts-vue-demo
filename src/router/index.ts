@@ -11,7 +11,7 @@ export const constantRoutes: RouteConfig[] = [
     children: [
       {
         path: 'dashboard',
-        component: () => import('@/views/Home.vue'),
+        component: () => import('@/views/Home/index.vue'),
       },
     ],
     meta: { title: '首页' },
@@ -19,32 +19,8 @@ export const constantRoutes: RouteConfig[] = [
 ];
 // 动态挂在路由
 export const asyncRoutes: RouteConfig[] = [
-  // 个人介绍
   {
-    path: '/personal-center',
-    component: Layout,
-    meta: { title: '个人中心' },
-    redirect: '/personal-center/intro',
-    children: [
-      {
-        path: 'intro',
-        component: () => import('@/views/Intro/index.vue'),
-        meta: { title: '个人介绍' }
-      }
-    ]
-  },
-  // 技术储备
-  {
-    path: '/technology-center',
-    component: Layout,
-    meta: { title: '技术储备' },
-    children: [
-      // 前端
-      {
-        path: 'front',
-        component: () => import('@/views/Technology-Front/index.vue')
-      }
-    ]
+    path: ''
   }
 ];
 
