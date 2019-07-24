@@ -1,7 +1,6 @@
 import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators'
 import { getToken, setToken, removeToken } from '@/utils/cookies'
 import router, { resetRouter } from '@/router'
-import { PermissionModule } from './permission'
 import store from '@/store'
 
 export interface IUserState {
@@ -21,5 +20,16 @@ class User extends VuexModule implements IUserState {
   public introduction = ""
   public roles: string[] = []
   public email = ""
+  @Mutation
+  private SET_ROLES(roles: string[]) {
+    this.roles = roles
+  }
+  @Action
+  public async GetUserInfo() {
+    if (this.token === '') {
+      throw Error('GetUserInfo: token is undefined!')
+    }
+    this.SET_ROLES(['admin'])
+  }
 }
 export const UserModule = getModule(User)
