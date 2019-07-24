@@ -13,5 +13,7 @@ export default class Login extends Vue {
 </script>
 <style lang="less">
 .page-login {
+  width: 100vw;
+  height: 100vh;
 }
 </style>

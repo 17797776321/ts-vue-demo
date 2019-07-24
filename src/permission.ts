@@ -38,6 +38,7 @@ router.beforeEach(async (to: Route, _: Route, next: any) => {
   } else {
     if (whiteList.indexOf(to.path) !== -1) {
       next()
+      NProgress.done()
     } else {
       next(`/login?redirect=${to.path}`)
       NProgress.done()
