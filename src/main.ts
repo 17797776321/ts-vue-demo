@@ -11,6 +11,8 @@ import '@/style/global.less';
 // 引入SVG
 import SvgIcon from 'vue-svgicon';
 import '@/icons'
+// 引入全局导航守卫
+import './permission.ts'
 Vue.use(ElementUI);
 // 引入SVG
 Vue.use(SvgIcon, {
