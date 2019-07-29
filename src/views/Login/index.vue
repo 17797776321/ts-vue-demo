@@ -1,23 +1,25 @@
 
 <template>
   <div class="page-login">
-    <el-form ref="fomBox" class="login-form" label-position="left">
+    <el-form ref="fomBox" class="login-form" label-position="left" :model="form" :rules="rules">
       <div class="login-title">系统登陆</div>
-      <el-form-item class="input-label">
+      <el-form-item class="input-label" prop="user">
         <svgicon name="user" width="25" height="15" color="#EEEEE3"></svgicon>
         <input type="text" v-model="form.user" placeholder="账号" />
       </el-form-item>
-      <el-form-item class="input-label">
+      <el-form-item class="input-label" prop="password">
         <svgicon name="pwd" width="25" height="15" color="#EEEEE3"></svgicon>
         <input type="password" v-model="form.password" placeholder="密码" />
       </el-form-item>
-      <el-button type="primary" size="small" style="width:100%">登陆</el-button>
+      <el-button type="primary" size="small" style="width:100%" @click="onSubmit">登陆</el-button>
     </el-form>
   </div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
+import { Form as ElForm } from "element-ui";
 import svgicon from "vue-svgicon";
+import { setToken } from "@/utils/cookies";
 @Component({
   name: "Login",
   components: { svgicon }
@@ -27,6 +29,19 @@ export default class Login extends Vue {
     user: "",
     password: ""
   };
+  private rules = {
+    user: [{ required: true, message: "请输入账号", trigger: "blur" }],
+    password: [{ required: true, message: "请输入密码", trigger: "blur" }]
+  };
+  private onSubmit() {
+    (this.$refs.fomBox as ElForm).validate(async (valid: Boolean) => {
+      if (valid) {
+        setToken("asdf2524s5df5sad4f5asdf152sad4f5");
+        this.$router.replace("/");
+        console.log(111);
+      }
+    });
+  }
 }
 </script>
 <style lang="less">
@@ -35,9 +50,9 @@ export default class Login extends Vue {
   height: 100vh;
   background-color: #2d3a4b !important;
   .login-form {
-    width: 300px;
+    width: 400px;
     position: relative;
-    left: calc((100vw - 300px) / 2);
+    left: calc((100vw - 400px) / 2);
     top: 300px;
     .login-title {
       font-size: 26px;
