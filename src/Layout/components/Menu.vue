@@ -4,9 +4,9 @@
       default-active="1-4-1"
       style="width:100%"
       class="el-menu-vertical-demo"
-      background-color="#545c64"
+      background-color="#001529"
       active-text-color="#ffd04b"
-      text-color="#fff"
+      text-color="#FFFFFF"
       @open="handleOpen"
       @close="handleClose"
       :collapse="!sidebar.isCollapse"
@@ -67,6 +67,11 @@ export default class Menu extends Vue {
 }
 </script>
 <style lang="less">
+.el-submenu {
+  .el-menu-item {
+    background-color: #000c17 !important;
+  }
+}
 .el-menu-vertical-demo:not(.el-menu--collapse) {
   min-height: 100vh;
 }

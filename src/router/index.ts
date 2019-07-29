@@ -33,9 +33,9 @@ export const constantRoutes: RouteConfig[] = [
       {
         path: 'dashboard',
         component: () => import('@/views/Home/index.vue'),
+        meta: { title: '首页' }
       },
-    ],
-    meta: { title: '首页' },
+    ]
   }
 ];
 // 动态挂在路由
