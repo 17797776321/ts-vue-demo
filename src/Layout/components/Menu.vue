@@ -43,6 +43,7 @@
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 import { AppModule } from "@/store/modules/app";
+import { PermissionModule } from "../../store/modules/permission";
 @Component({
   name: "Menu"
 })
@@ -57,8 +58,11 @@ export default class Menu extends Vue {
   get sidebar() {
     return AppModule.sidebar;
   }
+  get routes() {
+    return PermissionModule.routes;
+  }
   private created() {
-    console.log(this.$route);
+    console.log(this.routes);
   }
 }
 </script>
