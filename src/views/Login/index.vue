@@ -36,9 +36,8 @@ export default class Login extends Vue {
   private onSubmit() {
     (this.$refs.fomBox as ElForm).validate(async (valid: Boolean) => {
       if (valid) {
-        setToken("asdf2524s5df5sad4f5asdf152sad4f5");
-        this.$router.replace("/");
-        console.log(111);
+        setToken("asdf2524s5dfawdawdawsdf152sad4f5");
+        this.$router.replace({ path: "/" });
       }
     });
   }
