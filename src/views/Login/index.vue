@@ -20,6 +20,7 @@ import { Vue, Component } from "vue-property-decorator";
 import { Form as ElForm } from "element-ui";
 import svgicon from "vue-svgicon";
 import { setToken } from "@/utils/cookies";
+import { UserModule } from "../../store/modules/user";
 @Component({
   name: "Login",
   components: { svgicon }
@@ -36,7 +37,7 @@ export default class Login extends Vue {
   private onSubmit() {
     (this.$refs.fomBox as ElForm).validate(async (valid: Boolean) => {
       if (valid) {
-        setToken("asdf2524s5dfawdawdawsdf152sad4f5");
+        await UserModule.Login(this.form);
         this.$router.replace({ path: "/" });
       }
     });

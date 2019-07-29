@@ -24,12 +24,23 @@ class User extends VuexModule implements IUserState {
   private SET_ROLES(roles: string[]) {
     this.roles = roles
   }
+  @Mutation
+  private SET_TOKEN(token: string) {
+    this.token = token
+  }
   @Action
   public async GetUserInfo() {
     if (this.token === '') {
       throw Error('GetUserInfo: token is undefined!')
     }
     this.SET_ROLES(['admin'])
+  }
+  @Action
+  public async Login(data: { user: string, password: string }) {
+    let { user, password } = data
+    setToken('sef457fwefn2bfth84a4ddw')
+    this.SET_TOKEN('sef457fwefn2bfth84a4ddw')
+
   }
 }
 export const UserModule = getModule(User)
