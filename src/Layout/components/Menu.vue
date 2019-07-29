@@ -57,6 +57,9 @@ export default class Menu extends Vue {
   get sidebar() {
     return AppModule.sidebar;
   }
+  private created() {
+    console.log(this.$route);
+  }
 }
 </script>
 <style lang="less">

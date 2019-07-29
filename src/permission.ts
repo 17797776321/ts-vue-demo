@@ -10,7 +10,6 @@ NProgress.configure({ showSpinner: false })
 const whiteList = ['/login', '/auth-redirect']
 
 router.beforeEach(async (to: Route, _: Route, next: any) => {
-  console.log('开始')
   NProgress.start()
   if (UserModule.token) {
     if (to.path === 'login') {
