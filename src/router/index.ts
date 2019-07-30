@@ -53,7 +53,7 @@ export const asyncRoutes: RouteConfig[] = [
         meta: { title: '个人中心' }
       }
     ],
-    meta: { title: '个人中心' }
+    meta: { title: '个人中心', icon: 'menu' }
   },
   // 技术中心
   {
@@ -67,7 +67,7 @@ export const asyncRoutes: RouteConfig[] = [
         meta: { title: '技术中心' }
       }
     ],
-    meta: { title: '技术中心' }
+    meta: { title: '技术中心', icon: 'menu' }
   }
 ];
 

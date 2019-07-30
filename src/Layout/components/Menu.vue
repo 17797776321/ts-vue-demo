@@ -11,27 +11,6 @@
       @close="handleClose"
       :collapse="!sidebar.isCollapse"
     >
-      <!-- <el-submenu index="1">
-        <template slot="title">
-          <i class="el-icon-location"></i>
-          <span slot="title">导航一</span>
-        </template>
-        <el-menu-item index="1-1">选项1</el-menu-item>
-        <el-menu-item index="1-2">选项2</el-menu-item>
-        <el-menu-item index="1-3">选项3</el-menu-item>
-        <el-submenu index="1-4">
-          <span slot="title">选项4</span>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <span slot="title">导航二</span>
-      </el-menu-item>
-      <el-menu-item index="3">
-        <i class="el-icon-setting"></i>
-        <span slot="title">导航三</span>
-      </el-menu-item>-->
       <div v-for="(item,index) in routes" :key="index">
         <el-submenu
           v-if="(item.children && item.children.length>1) && (!item.meta || !item.meta.hidden)"
@@ -45,6 +24,7 @@
           v-else-if="(!item.children || item.children.length === 1) && (!item.meta || !item.meta.hidden)"
           :index="item.path"
         >
+          <svgicon :name="item.meta.icon" width="25" height="25" style="margin-right:10px"></svgicon>
           <span slot="title">{{item.meta.title}}</span>
         </el-menu-item>
       </div>
@@ -55,8 +35,10 @@
 import { Vue, Component } from "vue-property-decorator";
 import { AppModule } from "@/store/modules/app";
 import { PermissionModule } from "../../store/modules/permission";
+import svgicon from "vue-svgicon";
 @Component({
-  name: "Menu"
+  name: "Menu",
+  components: { svgicon }
 })
 export default class Menu extends Vue {
   private isCollapse: Boolean = false;
@@ -73,7 +55,7 @@ export default class Menu extends Vue {
     return PermissionModule.routes;
   }
   private created() {
-    console.log(this.routes);
+    console.log("路由", this.routes);
   }
 }
 </script>
