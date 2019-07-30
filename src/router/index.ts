@@ -18,7 +18,7 @@ export const constantRoutes: RouteConfig[] = [
   {
     path: '/login',
     component: () => import('@/views/Login/index.vue'),
-    meta: { title: '登陆' }
+    meta: { title: '登陆', hidden: true }
   },
   {
     path: '/auth-redirect',
@@ -33,30 +33,41 @@ export const constantRoutes: RouteConfig[] = [
       {
         path: 'dashboard',
         component: () => import('@/views/Home/index.vue'),
-        meta: { title: '首页' }
+        meta: { title: '首页', hidden: true }
       },
-    ]
+    ],
+    meta: { hidden: true }
   }
 ];
 // 动态挂在路由
 export const asyncRoutes: RouteConfig[] = [
+  // 个人中心
   {
-    path: '/',
+    path: '/personal-center',
     component: Layout,
+    redirect: '/personal-center/index',
     children: [
-      // 个人中心
       {
-        path: 'personal-center',
+        path: 'index',
         component: () => import('@/views/PersonalCenter/index.vue'),
         meta: { title: '个人中心' }
-      },
-      // technology 技术储备
-      {
-        path: 'technology',
-        component: () => import('@/views/Technology/index.vue'),
-        meta: { title: '技术储备' }
       }
-    ]
+    ],
+    meta: { title: '个人中心' }
+  },
+  // 技术中心
+  {
+    path: '/technology',
+    component: Layout,
+    redirect: '/technology/index',
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/Technology/index.vue'),
+        meta: { title: '技术中心' }
+      }
+    ],
+    meta: { title: '技术中心' }
   }
 ];
 

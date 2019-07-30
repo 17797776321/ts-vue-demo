@@ -11,8 +11,7 @@
       @close="handleClose"
       :collapse="!sidebar.isCollapse"
     >
-      <!-- 000c17 -->
-      <el-submenu index="1">
+      <!-- <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span slot="title">导航一</span>
@@ -32,7 +31,23 @@
       <el-menu-item index="3">
         <i class="el-icon-setting"></i>
         <span slot="title">导航三</span>
-      </el-menu-item>
+      </el-menu-item>-->
+      <div v-for="(item,index) in routes" :key="index">
+        <el-submenu
+          v-if="(item.children && item.children.length>1) && (!item.meta || !item.meta.hidden)"
+          :index="item.path"
+        >
+          <template slot="title">
+            <span slot="title">{{item.meta.title}}</span>
+          </template>
+        </el-submenu>
+        <el-menu-item
+          v-else-if="(!item.children || item.children.length === 1) && (!item.meta || !item.meta.hidden)"
+          :index="item.path"
+        >
+          <span slot="title">{{item.meta.title}}</span>
+        </el-menu-item>
+      </div>
     </el-menu>
   </div>
 </template>
