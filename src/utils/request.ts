@@ -7,6 +7,7 @@ const server = axios.create({
 export default {
   get: (path: string, params: any) => {
     new Promise((resolve, reject) => {
+      console.log(111)
       server.get(path, { params }).then(res => {
         if (res.data.code === 0) {
           return resolve(res.data)

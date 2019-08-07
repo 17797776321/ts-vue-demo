@@ -1,5 +1,6 @@
 import { VuexModule, Module, Action, Mutation, getModule } from 'vuex-module-decorators'
 import { getToken, setToken, removeToken } from '@/utils/cookies'
+import Api from '@/Api/index'
 import router, { resetRouter } from '@/router'
 import store from '@/store'
 
@@ -38,8 +39,11 @@ class User extends VuexModule implements IUserState {
   @Action
   public async Login(data: { user: string, password: string }) {
     let { user, password } = data
-    setToken('sef457fwefn2bfth84a4ddw')
-    this.SET_TOKEN('sef457fwefn2bfth84a4ddw')
+    console.log('断点1')
+    let res = await Api.User.Login(data)
+    console.log(res)
+    // setToken('sef457fwefn2bfth84a4ddw')
+    // this.SET_TOKEN('sef457fwefn2bfth84a4ddw')
 
   }
 }
