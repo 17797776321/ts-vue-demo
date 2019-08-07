@@ -12,21 +12,25 @@
       :collapse="!sidebar.isCollapse"
     >
       <div v-for="(item,index) in routes" :key="index">
-        <el-submenu
-          v-if="(item.children && item.children.length>0) && (!item.meta || !item.meta.hidden)"
-          :index="item.meta.link"
-        >
+        <el-submenu v-if="(item.children && item.children.length>0) && (!item.meta || !item.meta.hidden)">
           <template slot="title">
+            <svgicon :name="item.meta.icon" width="25" height="25" style="margin-right:10px"></svgicon>
             <span slot="title">{{item.meta.title}}</span>
           </template>
-          <el-menu-item v-for="(subItem,subIndex) in item.children" :key="subIndex" :index="subItem.meta.link">
+          <el-menu-item
+            v-for="(subItem,subIndex) in item.children"
+            :key="subIndex"
+            :index="subItem.meta.link"
+            @click="jump(subItem.meta.link)"
+          >
             <svgicon :name="subItem.meta.icon" width="25" height="25" style="margin-right:10px"></svgicon>
             <span slot="title">{{subItem.meta.title}}</span>
           </el-menu-item>
         </el-submenu>
         <el-menu-item
-          v-else-if="(!item.children || item.children.length === 1) && (!item.meta || !item.meta.hidden)"
-          :index="item.path"
+          v-else-if="(!item.children ) && (!item.meta || !item.meta.hidden)"
+          :index="item.meta.link"
+          @click="jump(item.meta.link)"
         >
           <svgicon :name="item.meta.icon" width="25" height="25" style="margin-right:10px"></svgicon>
           <span slot="title">{{item.meta.title}}</span>
@@ -60,6 +64,10 @@ export default class Menu extends Vue {
   }
   private created() {
     console.log("路由", this.routes);
+  }
+  private jump(path: string) {
+    this.$router.push({ path: path });
+    console.log(path);
   }
 }
 </script>
