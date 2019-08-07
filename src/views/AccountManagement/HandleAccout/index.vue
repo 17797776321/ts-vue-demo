@@ -1,15 +1,13 @@
 
 <template>
-  <div class="page-account-management">
-    <router-view />
-  </div>
+  <div class="page-handle-account">{{msg}}</div>
 </template>
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
 @Component({
-  name: "AccountManagement"
+  name: "HandleAccount"
 })
 export default class extends Vue {
-  private msg: string = "账号管理";
+  private msg: string = "账号分发";
 }
 </script>

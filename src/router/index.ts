@@ -41,6 +41,21 @@ export const constantRoutes: RouteConfig[] = [
 ];
 // 动态挂在路由
 export const asyncRoutes: RouteConfig[] = [
+  // 账户中心
+  {
+    path: '/account',
+    meta: { title: '账户管理', link: '/account', icon: 'menu' },
+    component: Layout,
+    redirect: 'account/handleAccout',
+    children: [
+      // 账号分发
+      {
+        path: 'handleAccout',
+        component: () => import('@/views/AccountManagement/HandleAccout/index.vue'),
+        meta: { title: '账号分发', link: '/account/handleAccout', icon: 'menu' }
+      }
+    ]
+  }
   // 个人中心
   // {
   //   path: '/personal-center',
