@@ -18,9 +18,9 @@ export default {
       })
     })
   },
-  post: (params: any) => {
+  post: (path: string, params: any) => {
     new Promise((resolve, reject) => {
-      server.post(params).then(res => {
+      server.post(path, params).then(res => {
         if (res.data.code === 0) {
           return resolve(res.data)
         } else {
