@@ -42,33 +42,33 @@ export const constantRoutes: RouteConfig[] = [
 // 动态挂在路由
 export const asyncRoutes: RouteConfig[] = [
   // 个人中心
-  {
-    path: '/personal-center',
-    component: Layout,
-    redirect: '/personal-center/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/PersonalCenter/index.vue'),
-        meta: { title: '个人中心' }
-      }
-    ],
-    meta: { title: '个人中心', icon: 'menu' }
-  },
+  // {
+  //   path: '/personal-center',
+  //   component: Layout,
+  //   redirect: '/personal-center/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/PersonalCenter/index.vue'),
+  //       meta: { title: '个人中心' }
+  //     }
+  //   ],
+  //   meta: { title: '个人中心', icon: 'menu' }
+  // },
   // 技术中心
-  {
-    path: '/technology',
-    component: Layout,
-    redirect: '/technology/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/Technology/index.vue'),
-        meta: { title: '技术中心' }
-      }
-    ],
-    meta: { title: '技术中心', icon: 'menu' }
-  }
+  // {
+  //   path: '/technology',
+  //   component: Layout,
+  //   redirect: '/technology/index',
+  //   children: [
+  //     {
+  //       path: 'index',
+  //       component: () => import('@/views/Technology/index.vue'),
+  //       meta: { title: '技术中心' }
+  //     }
+  //   ],
+  //   meta: { title: '技术中心', icon: 'menu' }
+  // }
 ];
 
 const createRouter = () => new Router({
