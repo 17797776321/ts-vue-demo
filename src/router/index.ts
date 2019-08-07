@@ -53,7 +53,8 @@ export const asyncRoutes: RouteConfig[] = [
         path: 'handleAccout',
         component: () => import('@/views/AccountManagement/HandleAccout/index.vue'),
         meta: { title: '账号分发', link: '/account/handleAccout', icon: 'menu' }
-      }
+      },
+      // 权限管理
     ]
   }
   // 个人中心

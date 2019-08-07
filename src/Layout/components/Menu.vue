@@ -13,12 +13,16 @@
     >
       <div v-for="(item,index) in routes" :key="index">
         <el-submenu
-          v-if="(item.children && item.children.length>1) && (!item.meta || !item.meta.hidden)"
-          :index="item.path"
+          v-if="(item.children && item.children.length>0) && (!item.meta || !item.meta.hidden)"
+          :index="item.meta.link"
         >
           <template slot="title">
             <span slot="title">{{item.meta.title}}</span>
           </template>
+          <el-menu-item v-for="(subItem,subIndex) in item.children" :key="subIndex" :index="subItem.meta.link">
+            <svgicon :name="subItem.meta.icon" width="25" height="25" style="margin-right:10px"></svgicon>
+            <span slot="title">{{subItem.meta.title}}</span>
+          </el-menu-item>
         </el-submenu>
         <el-menu-item
           v-else-if="(!item.children || item.children.length === 1) && (!item.meta || !item.meta.hidden)"
