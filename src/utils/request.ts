@@ -5,9 +5,9 @@ const server = axios.create({
   timeout: 1000
 })
 export default {
-  get: (params: any) => {
+  get: (path: string, params: any) => {
     new Promise((resolve, reject) => {
-      server.get(params).then(res => {
+      server.get(path, { params }).then(res => {
         if (res.data.code === 0) {
           return resolve(res.data)
         } else {
