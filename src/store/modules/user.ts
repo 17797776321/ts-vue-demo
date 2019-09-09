@@ -39,8 +39,7 @@ class User extends VuexModule implements IUserState {
   @Action
   public async Login(data: { user: string, password: string }) {
     let { user, password } = data
-    console.log('断点1')
-    let res = await Api.User.Login(data)
+    let res: any = await Api.User.Login(data)
     console.log(res)
     // setToken('sef457fwefn2bfth84a4ddw')
     // this.SET_TOKEN('sef457fwefn2bfth84a4ddw')
