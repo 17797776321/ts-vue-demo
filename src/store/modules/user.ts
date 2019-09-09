@@ -37,13 +37,16 @@ class User extends VuexModule implements IUserState {
     this.SET_ROLES(['admin'])
   }
   @Action
-  public async Login(data: { user: string, password: string }) {
-    let { user, password } = data
-    let res: any = await Api.User.Login(data)
-    console.log(res)
+  public async Login(formData: { user: string, password: string }) {
+    let { user, password } = formData
+    let data = await Api.User.Login(formData)
+    if (data.code) {
+      setToken(data.data.token)
+      this.SET_TOKEN(data.data.token)
+    }
+    return data
     // setToken('sef457fwefn2bfth84a4ddw')
     // this.SET_TOKEN('sef457fwefn2bfth84a4ddw')
-
   }
 }
 export const UserModule = getModule(User)

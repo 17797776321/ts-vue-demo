@@ -1,17 +1,36 @@
 
 <template>
   <div class="page-login">
-    <el-form ref="fomBox" class="login-form" label-position="left" :model="form" :rules="rules">
+    <el-form ref="fomBox"
+             class="login-form"
+             label-position="left"
+             :model="form"
+             :rules="rules">
       <div class="login-title">系统登陆</div>
-      <el-form-item class="input-label" prop="user">
-        <svgicon name="user" width="25" height="15" color="#EEEEE3"></svgicon>
-        <input type="text" v-model="form.user" placeholder="账号" />
+      <el-form-item class="input-label"
+                    prop="user">
+        <svgicon name="user"
+                 width="25"
+                 height="15"
+                 color="#EEEEE3"></svgicon>
+        <input type="text"
+               v-model="form.user"
+               placeholder="账号" />
       </el-form-item>
-      <el-form-item class="input-label" prop="password">
-        <svgicon name="pwd" width="25" height="15" color="#EEEEE3"></svgicon>
-        <input type="password" v-model="form.password" placeholder="密码" />
+      <el-form-item class="input-label"
+                    prop="password">
+        <svgicon name="pwd"
+                 width="25"
+                 height="15"
+                 color="#EEEEE3"></svgicon>
+        <input type="password"
+               v-model="form.password"
+               placeholder="密码" />
       </el-form-item>
-      <el-button type="primary" size="small" style="width:100%" @click="onSubmit">登陆</el-button>
+      <el-button type="primary"
+                 size="small"
+                 style="width:100%"
+                 @click="onSubmit">登陆</el-button>
     </el-form>
   </div>
 </template>
@@ -37,7 +56,15 @@ export default class Login extends Vue {
   private onSubmit() {
     (this.$refs.fomBox as ElForm).validate(async (valid: Boolean) => {
       if (valid) {
-        await UserModule.Login(this.form);
+        let data = await UserModule.Login(this.form);
+        console.log(data);
+        if (data.code === 1) {
+          this.$message.success(data.data.msg);
+        } else {
+          this.$message.error(data.data.msg);
+        }
+
+        console.log(data);
         this.$router.replace({ path: "/" });
       }
     });
